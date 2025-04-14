@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { Send } from "lucide-react";
@@ -81,7 +80,7 @@ const AnimatedInput: React.FC<AnimatedInputProps> = ({
     }
   };
 
-  return <form onSubmit={handleSubmit} className={cn("relative w-full max-w-2xl transition-all duration-500", className)}>
+  return <form onSubmit={handleSubmit} className={cn("relative w-full max-w-2xl transition-all duration-500 rounded-full overflow-hidden", className)}>
       <div className={cn("absolute inset-0 rounded-full transition-opacity duration-1000 opacity-0 overflow-hidden", showGradientBorder && "opacity-100")}>
         <div className="absolute inset-0 animate-liquid-flow bg-gradient-to-r from-purple-500 via-blue-500 to-teal-500 to-violet-500 to-pink-500" />
       </div>
