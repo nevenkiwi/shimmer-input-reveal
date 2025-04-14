@@ -28,7 +28,7 @@ const AnimatedInput: React.FC<AnimatedInputProps> = ({
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowGradientBorder(false);
-    }, 3000);
+    }, 5000); // Extended to 5 seconds to give more time to see the flowing animation
     
     return () => clearTimeout(timer);
   }, []);
@@ -66,11 +66,12 @@ const AnimatedInput: React.FC<AnimatedInputProps> = ({
     >
       <div 
         className={cn(
-          "absolute inset-0 rounded-full transition-opacity duration-1000 opacity-0",
+          "absolute inset-0 rounded-full transition-opacity duration-1000 opacity-0 overflow-hidden",
           showGradientBorder && "opacity-100",
-          "bg-gradient-to-r from-purple-400 via-blue-400 to-teal-400"
         )}
-      />
+      >
+        <div className="absolute inset-0 animate-liquid-flow bg-gradient-to-r from-purple-500 via-blue-500 to-teal-500 to-violet-500 to-pink-500" />
+      </div>
       <div className="absolute inset-[2px] bg-white dark:bg-black rounded-full" />
       <div className="relative flex items-center">
         <div className="flex items-center justify-center w-10 h-10 pl-3">
