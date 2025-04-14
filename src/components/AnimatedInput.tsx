@@ -43,22 +43,22 @@ const AnimatedInput: React.FC<AnimatedInputProps> = ({
     
     if (isTyping) {
       if (displayText.length < currentText.length) {
-        // Typing phase - add one character at a time
+        // Typing phase - add one character at a time (reduced from 100 to 50ms)
         timeoutRef.current = setTimeout(() => {
           setDisplayText(currentText.substring(0, displayText.length + 1));
-        }, 100);
+        }, 50);
       } else {
-        // Finished typing - pause before starting to erase
+        // Finished typing - pause before starting to erase (reduced from 2000 to 1000ms)
         timeoutRef.current = setTimeout(() => {
           setIsTyping(false);
-        }, 2000);
+        }, 1000);
       }
     } else {
       if (displayText.length > 0) {
-        // Erasing phase - remove one character at a time
+        // Erasing phase - remove one character at a time (reduced from 50 to 25ms)
         timeoutRef.current = setTimeout(() => {
           setDisplayText(displayText.substring(0, displayText.length - 1));
-        }, 50);
+        }, 25);
       } else {
         // Finished erasing - move to next text and start typing again
         setCurrentPlaceholderIndex((prev) => (prev + 1) % placeholderTexts.length);
