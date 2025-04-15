@@ -1,7 +1,6 @@
-
 import React, { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
-import { Send } from "lucide-react";
+import { Send, Sparkles } from "lucide-react";
 
 interface AnimatedInputProps {
   onSubmit?: (value: string) => void;
@@ -101,9 +100,7 @@ const AnimatedInput: React.FC<AnimatedInputProps> = ({
       {/* Input and button container */}
       <div className="relative flex items-center rounded-full">
         <div className="flex items-center justify-center w-10 h-10 pl-3">
-          <svg viewBox="0 0 24 24" className="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-          </svg>
+          <Sparkles className="w-5 h-5 text-gray-500" />
         </div>
         <input 
           type="text" 
