@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { Send } from "lucide-react";
@@ -80,11 +81,24 @@ const AnimatedInput: React.FC<AnimatedInputProps> = ({
     }
   };
 
-  return <form onSubmit={handleSubmit} className={cn("relative w-full max-w-2xl transition-all duration-500 rounded-full overflow-hidden", className)}>
-      <div className={cn("absolute inset-0 rounded-full transition-opacity duration-1000 opacity-0 overflow-hidden", showGradientBorder && "opacity-100")}>
-        <div className="absolute inset-0 animate-liquid-flow bg-gradient-to-r from-purple-500 via-blue-500 to-teal-500 to-violet-500 to-pink-500" />
+  return (
+    <form onSubmit={handleSubmit} className={cn("relative w-full max-w-2xl transition-all duration-500 rounded-full overflow-hidden", className)}>
+      {/* Glowing border animation container */}
+      <div className={cn(
+        "absolute inset-0 rounded-full transition-opacity duration-1000 opacity-0", 
+        showGradientBorder && "opacity-100"
+      )}>
+        {/* Outer glow wrapper */}
+        <div className="absolute -inset-2 rounded-full blur-md bg-gradient-to-r from-[#E978F3] to-[#83F0E0] animate-liquid-flow opacity-70" />
+        
+        {/* Inner gradient border */}
+        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#E978F3] to-[#83F0E0] animate-liquid-flow" />
       </div>
+      
+      {/* Inner content background */}
       <div className="absolute inset-[2px] bg-white dark:bg-black rounded-full" />
+      
+      {/* Input and button container */}
       <div className="relative flex items-center rounded-full">
         <div className="flex items-center justify-center w-10 h-10 pl-3">
           <svg viewBox="0 0 24 24" className="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -106,7 +120,8 @@ const AnimatedInput: React.FC<AnimatedInputProps> = ({
           <Send size={18} />
         </button>
       </div>
-    </form>;
+    </form>
+  );
 };
 
 export default AnimatedInput;
