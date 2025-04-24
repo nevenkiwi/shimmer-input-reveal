@@ -1,27 +1,11 @@
-import AnimatedInput from "@/components/AnimatedInput";
-import { toast } from "sonner";
+// Update this page (the content is just a fallback if you fail to update the page)
 
 const Index = () => {
-  const handleSubmit = (question: string) => {
-    toast.success("Question submitted: " + question);
-    console.log("Question submitted:", question);
-  };
-
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-4 bg-gray-50 dark:bg-gray-900">
-      <div className="w-full max-w-2xl mb-8">
-        
-        
-      </div>
-      
-      <AnimatedInput onSubmit={handleSubmit} className="shadow-lg" />
-      
-      <div className="mt-4 text-center text-sm text-gray-500 dark:text-gray-400">
-        Just an animated prototype, icons, fonts and rest does not match the actual design.
-      </div>
-      
-      <div className="mt-12 w-full max-w-2xl">
-        
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <div className="text-center">
+        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
+        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
       </div>
     </div>
   );
