@@ -9,10 +9,10 @@ interface AnimatedInputProps {
 
 const placeholderPrefixText = "Try asking...";
 const placeholderTexts = [
-  "How to request a refund for your flight?",
-  "How to change your travel ID number?",
-  "How to check-in online with the airline?",
-  "How to request special assistance?"
+  "How to request a refund\nfor your flight?",
+  "How to change your\ntravel ID number?",
+  "How to check-in online\nwith the airline?",
+  "How to request special\nassistance?"
 ];
 
 const AnimatedInput: React.FC<AnimatedInputProps> = ({
@@ -81,7 +81,7 @@ const AnimatedInput: React.FC<AnimatedInputProps> = ({
   };
 
   return (
-    <form onSubmit={handleSubmit} className={cn("relative w-full max-w-2xl transition-all duration-500 rounded-full overflow-hidden", className)}>
+    <form onSubmit={handleSubmit} className={cn("relative w-full max-w-[375px] transition-all duration-500 rounded-full overflow-hidden", className)}>
       {/* Glowing border animation container */}
       <div className={cn(
         "absolute inset-0 rounded-full transition-opacity duration-1000 opacity-0", 
@@ -99,19 +99,19 @@ const AnimatedInput: React.FC<AnimatedInputProps> = ({
       
       {/* Input and button container */}
       <div className="relative flex items-center rounded-full">
-        <div className="flex items-center justify-center w-10 h-10 pl-3">
+        <div className="flex items-center justify-center w-10 h-14 pl-3">
           <Sparkles className="w-5 h-5 text-gray-500" />
         </div>
         <input 
           type="text" 
           value={inputValue} 
           onChange={e => setInputValue(e.target.value)} 
-          className="flex-1 h-14 bg-transparent border-none outline-none text-gray-700 dark:text-gray-200 px-2 placeholder:text-gray-500 dark:placeholder:text-gray-400" 
+          className="flex-1 min-h-[56px] bg-transparent border-none outline-none text-gray-700 dark:text-gray-200 px-2 placeholder:text-gray-500 dark:placeholder:text-gray-400 placeholder:whitespace-pre-line" 
           placeholder={`${placeholderPrefixText} ${displayText}`} 
         />
         <button 
           type="submit" 
-          className="flex items-center justify-center w-10 h-10 mr-3 text-gray-500 hover:text-gray-800 dark:hover:text-gray-200 transition-colors" 
+          className="flex items-center justify-center w-10 h-14 mr-3 text-gray-500 hover:text-gray-800 dark:hover:text-gray-200 transition-colors" 
           disabled={!inputValue.trim()}
         >
           <Send size={18} />
